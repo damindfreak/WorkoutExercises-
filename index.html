@@ -93,49 +93,61 @@
     </div>
   </main>
 
-  <script>
-    const REPO_BASE = "/WorkoutExercises-";
-    const list = document.getElementById("list");
+<script>
+  const REPO_BASE = "/WorkoutExercises-";
+  const list = document.getElementById("list");
 
-    async function loadMovements() {
-      try {
-        const response = await fetch(
-          `${REPO_BASE}/movements.json`
+  async function loadMovements() {
+    try {
+      const url = `${REPO_BASE}/movements.json`;
+
+      list.innerHTML = `<p>Loading: ${url}</p>`;
+
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(
+          `HTTP ${response.status} ${response.statusText}`
         );
-
-        if (!response.ok) {
-          throw new Error("Could not load movements.json");
-        }
-
-        const movements = await response.json();
-
-        list.innerHTML = "";
-
-        Object.entries(movements).forEach(
-          ([slug, movement]) => {
-
-            const link = document.createElement("a");
-
-            link.href =
-              `${REPO_BASE}/g/${slug}`;
-
-            link.textContent =
-              movement.title;
-
-            list.appendChild(link);
-          }
-        );
-
-      } catch (error) {
-        console.error(error);
-
-        list.innerHTML =
-          '<p class="error">Could not load exercises.</p>';
       }
-    }
 
-    loadMovements();
-  </script>
+      const text = await response.text();
+
+      list.innerHTML = `
+        <p>File loaded successfully.</p>
+        <pre>${text.substring(0, 500)}</pre>
+      `;
+
+      const movements = JSON.parse(text);
+
+      list.innerHTML = "";
+
+      Object.entries(movements).forEach(
+        ([slug, movement]) => {
+
+          const link = document.createElement("a");
+
+          link.href = `${REPO_BASE}/g/${slug}`;
+
+          link.textContent = movement.title;
+
+          list.appendChild(link);
+        }
+      );
+
+    } catch (error) {
+      console.error(error);
+
+      list.innerHTML = `
+        <p class="error">
+          ERROR: ${error.message}
+        </p>
+      `;
+    }
+  }
+
+  loadMovements();
+</script>
 
 </body>
 </html>
