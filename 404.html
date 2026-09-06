@@ -19,9 +19,11 @@
 
     body {
       min-height: 100vh;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 24px;
 
       font-family:
@@ -48,7 +50,11 @@
       opacity: 0;
       transform: translateY(10px) scale(0.985);
 
-      animation: pageIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation:
+        pageIn
+        0.55s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
     }
 
     .title {
@@ -57,6 +63,7 @@
       font-size: clamp(24px, 5vw, 38px);
       font-weight: 650;
       line-height: 1.15;
+
       text-align: center;
       letter-spacing: -0.02em;
     }
@@ -70,6 +77,7 @@
       justify-content: center;
 
       min-height: 240px;
+      position: relative;
     }
 
     .gif {
@@ -88,7 +96,8 @@
 
       transition:
         opacity 0.45s ease,
-        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        transform 0.55s
+        cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .gif.loaded {
@@ -104,6 +113,7 @@
 
       border: 2px solid #d0d0d0;
       border-top-color: #111;
+
       border-radius: 50%;
 
       animation: spin 0.75s linear infinite;
@@ -142,7 +152,6 @@
     .error {
       width: 100%;
       max-width: 520px;
-
       text-align: center;
     }
 
@@ -165,6 +174,7 @@
       margin: 0;
 
       color: #666;
+
       font-size: 15px;
       line-height: 1.5;
     }
@@ -242,9 +252,11 @@
   <main class="page">
 
     <section id="exercise" class="hidden">
+
       <h1 id="title" class="title"></h1>
 
       <div class="viewer">
+
         <div id="loading" class="loading"></div>
 
         <img
@@ -252,6 +264,7 @@
           class="gif"
           alt=""
         >
+
       </div>
 
       <button
@@ -261,13 +274,20 @@
       >
         ← Back
       </button>
+
     </section>
 
     <section id="error" class="error hidden">
+
       <p class="error-code">404</p>
-      <h1 class="error-title">Exercise not found</h1>
+
+      <h1 class="error-title">
+        Exercise not found
+      </h1>
+
       <p class="error-message">
-        The requested exercise does not exist or its GIF could not be found.
+        The requested exercise does not exist
+        or its GIF could not be found.
       </p>
 
       <button
@@ -277,6 +297,7 @@
       >
         ← Back
       </button>
+
     </section>
 
   </main>
@@ -284,18 +305,31 @@
   <script>
     const REPO_BASE = "/WorkoutExercises-";
 
-    const exerciseSection = document.getElementById("exercise");
-    const errorSection = document.getElementById("error");
-    const titleElement = document.getElementById("title");
-    const gifElement = document.getElementById("gif");
-    const loadingElement = document.getElementById("loading");
+    const exerciseSection =
+      document.getElementById("exercise");
+
+    const errorSection =
+      document.getElementById("error");
+
+    const titleElement =
+      document.getElementById("title");
+
+    const gifElement =
+      document.getElementById("gif");
+
+    const loadingElement =
+      document.getElementById("loading");
+
 
     function getSlug() {
-      const path = window.location.pathname;
+
+      const path =
+        window.location.pathname;
 
       const marker = "/g/";
 
-      const index = path.indexOf(marker);
+      const index =
+        path.indexOf(marker);
 
       if (index === -1) {
         return null;
@@ -308,13 +342,20 @@
         .toLowerCase();
     }
 
+
     function showError() {
+
       exerciseSection.classList.add("hidden");
+
       errorSection.classList.remove("hidden");
-      document.title = "Exercise Not Found";
+
+      document.title =
+        "Exercise Not Found";
     }
 
+
     async function loadExercise() {
+
       const slug = getSlug();
 
       if (!slug) {
@@ -323,55 +364,82 @@
       }
 
       try {
-        const response = await fetch(
-          `${REPO_BASE}/movements.json`,
-          {
-            cache: "no-cache"
-          }
-        );
+
+        const response =
+          await fetch(
+            `${REPO_BASE}/movements.json`,
+            {
+              cache: "no-cache"
+            }
+          );
 
         if (!response.ok) {
-          throw new Error("Could not load movements.json");
+          throw new Error(
+            "Could not load movements.json"
+          );
         }
 
-        const movements = await response.json();
-        const movement = movements[slug];
+        const movements =
+          await response.json();
+
+        const movement =
+          movements[slug];
 
         if (!movement) {
           showError();
           return;
         }
 
-        titleElement.textContent = movement.title;
-        document.title = movement.title;
+        titleElement.textContent =
+          movement.title;
+
+        document.title =
+          movement.title;
+
 
         const gifURL =
-          `${REPO_BASE}/gifs/${encodeURIComponent(movement.file)}`;
+          `${REPO_BASE}/gifs/${encodeURIComponent(
+            movement.file
+          )}`;
 
-        gifElement.alt = movement.title;
+
+        gifElement.alt =
+          movement.title;
+
 
         gifElement.onload = () => {
-          loadingElement.classList.add("hidden");
-          gifElement.classList.add("loaded");
+
+          loadingElement
+            .classList
+            .add("hidden");
+
+          gifElement
+            .classList
+            .add("loaded");
         };
+
 
         gifElement.onerror = () => {
           showError();
         };
 
-        /*
-          Setting the image source here effectively starts the
-          browser's loading process before revealing the GIF.
-        */
+
         gifElement.src = gifURL;
 
-        exerciseSection.classList.remove("hidden");
+
+        exerciseSection
+          .classList
+          .remove("hidden");
+
 
       } catch (error) {
+
         console.error(error);
+
         showError();
       }
     }
+
 
     loadExercise();
   </script>
