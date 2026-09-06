@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Workout Exercises</title>
 
@@ -34,6 +37,7 @@
 
     h1 {
       margin: 0 0 30px;
+
       font-size: clamp(28px, 5vw, 42px);
       letter-spacing: -0.03em;
     }
@@ -44,11 +48,13 @@
         auto-fill,
         minmax(220px, 1fr)
       );
+
       gap: 12px;
     }
 
     a {
       display: block;
+
       padding: 16px 18px;
 
       border: 1px solid #ddd;
@@ -110,8 +116,11 @@
 
             const link = document.createElement("a");
 
-            link.href = `${REPO_BASE}/g/${slug}`;
-            link.textContent = movement.title;
+            link.href =
+              `${REPO_BASE}/g/${slug}`;
+
+            link.textContent =
+              movement.title;
 
             list.appendChild(link);
           }
