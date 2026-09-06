@@ -1,0 +1,188 @@
+```json
+{
+  "90-crunch": {
+    "title": "90° Crunch",
+    "file": "90-crunch.gif"
+  },
+  "back-extension": {
+    "title": "Back Extension",
+    "file": "back-extension.gif"
+  },
+  "band-hold-knee-raises": {
+    "title": "Band Hold Knee Raises",
+    "file": "band-hold-knee-raises.gif"
+  },
+  "banded-bear-slider": {
+    "title": "Banded Bear Slider",
+    "file": "banded-bear-slider.gif"
+  },
+  "banded-pushups": {
+    "title": "Banded Push-ups",
+    "file": "banded-pushups.gif"
+  },
+  "barbell-deadlift": {
+    "title": "Barbell Deadlift",
+    "file": "barbell-deadlift.gif"
+  },
+  "barbell-hip-thrust": {
+    "title": "Barbell Hip Thrust",
+    "file": "barbell-hip-thrust.gif"
+  },
+  "bench-leg-raise": {
+    "title": "Bench Leg Raise",
+    "file": "bench-leg-raise.gif"
+  },
+  "bow-pose": {
+    "title": "Bow Pose",
+    "file": "bow-pose.gif"
+  },
+  "bulgarian-jump-squats": {
+    "title": "Bulgarian Jump Squats",
+    "file": "bulgarian-jump-squats.gif"
+  },
+  "bulgarian-split-squat": {
+    "title": "Bulgarian Split Squat",
+    "file": "bulgarian-split-squat.gif"
+  },
+  "cable-kickback": {
+    "title": "Cable Kickback",
+    "file": "cable-kickback.gif"
+  },
+  "close-grip-lat-pulldown": {
+    "title": "Close-Grip Lat Pulldown",
+    "file": "close-grip-lat-pulldown.gif"
+  },
+  "close-grip-row": {
+    "title": "Close-Grip Row",
+    "file": "close-grip-row.gif"
+  },
+  "db-bicep-curls": {
+    "title": "Dumbbell Bicep Curls",
+    "file": "db-bicep-curls.gif"
+  },
+  "db-leg-curls": {
+    "title": "Dumbbell Leg Curls",
+    "file": "db-leg-curls.gif"
+  },
+  "db-shrugs": {
+    "title": "Dumbbell Shrugs",
+    "file": "db-shrugs.gif"
+  },
+  "decline-crunch": {
+    "title": "Decline Crunch",
+    "file": "decline-crunch.gif"
+  },
+  "face-pull": {
+    "title": "Face Pull",
+    "file": "face-pull.gif"
+  },
+  "hack-squats": {
+    "title": "Hack Squats",
+    "file": "hack-squats.gif"
+  },
+  "hanging-knee-raise": {
+    "title": "Hanging Knee Raise",
+    "file": "hanging-knee-raise.gif"
+  },
+  "hip-abduction": {
+    "title": "Hip Abduction",
+    "file": "hip-abduction.gif"
+  },
+  "lateral-raise": {
+    "title": "Lateral Raise",
+    "file": "lateral-raise.gif"
+  },
+  "lateral-sl-squat": {
+    "title": "Lateral Single-Leg Squat",
+    "file": "lateral-sl-squat.gif"
+  },
+  "leg-extension": {
+    "title": "Leg Extension",
+    "file": "leg-extension.gif"
+  },
+  "mountain-climber": {
+    "title": "Mountain Climber",
+    "file": "mountain-climber.gif"
+  },
+  "pallof-press": {
+    "title": "Pallof Press",
+    "file": "pallof-press.gif"
+  },
+  "pigeon-pulses": {
+    "title": "Pigeon Pulses",
+    "file": "pigeon-pulses.gif"
+  },
+  "plank": {
+    "title": "Plank",
+    "file": "plank.gif"
+  },
+  "reverse-nordic": {
+    "title": "Reverse Nordic",
+    "file": "reverse-nordic.gif"
+  },
+  "seated-box-jumps": {
+    "title": "Seated Box Jumps",
+    "file": "seated-box-jumps.gif"
+  },
+  "seated-calf-raise": {
+    "title": "Seated Calf Raise",
+    "file": "seated-calf-raise.gif"
+  },
+  "side-bends-band": {
+    "title": "Band Side Bends",
+    "file": "side-bends-band.gif"
+  },
+  "side-lunges": {
+    "title": "Side Lunges",
+    "file": "side-lunges.gif"
+  },
+  "smith-calf-raises": {
+    "title": "Smith Machine Calf Raises",
+    "file": "smith-calf-raises.gif"
+  },
+  "smith-machine-shoulder-press": {
+    "title": "Smith Machine Shoulder Press",
+    "file": "smith-machine-shoulder-press.gif"
+  },
+  "squat": {
+    "title": "Squat",
+    "file": "squat.gif"
+  },
+  "standing-cable-crunch": {
+    "title": "Standing Cable Crunch",
+    "file": "standing-cable-crunch.gif"
+  },
+  "step-hops": {
+    "title": "Step Hops",
+    "file": "step-hops.gif"
+  },
+  "sumo-squats": {
+    "title": "Sumo Squats",
+    "file": "sumo-squats.gif"
+  },
+  "superman-pulses": {
+    "title": "Superman Pulses",
+    "file": "superman-pulses.gif"
+  },
+  "trx-jump-squat": {
+    "title": "TRX Jump Squat",
+    "file": "trx-jump-squat.gif"
+  },
+  "trx-row": {
+    "title": "TRX Row",
+    "file": "trx-row.gif"
+  },
+  "trx-y-raises": {
+    "title": "TRX Y Raises",
+    "file": "trx-y-raises.gif"
+  },
+  "wide-grip-lat-pulldown": {
+    "title": "Wide-Grip Lat Pulldown",
+    "file": "wide-grip-lat-pulldown.gif"
+  },
+  "wrist-curls": {
+    "title": "Wrist Curls",
+    "file": "wrist-curls.gif"
+  }
+}
+```
