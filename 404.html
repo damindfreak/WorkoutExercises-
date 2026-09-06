@@ -11,14 +11,17 @@
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
-      min-height: 100vh;
+      min-height: 100%;
+    }
 
+    body {
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-
       padding: 24px;
 
       font-family:
@@ -30,70 +33,206 @@
 
       background: #f5f5f5;
       color: #111;
+
+      overflow-x: hidden;
     }
 
     .page {
       width: 100%;
-      max-width: 800px;
+      max-width: 900px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      opacity: 0;
+      transform: translateY(10px) scale(0.985);
+
+      animation: pageIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .title {
+      margin: 0 0 24px;
+
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 650;
+      line-height: 1.15;
       text-align: center;
+      letter-spacing: -0.02em;
     }
 
-    h1 {
-      margin-bottom: 24px;
+    .viewer {
+      width: 100%;
+      max-width: 760px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 240px;
     }
 
-    img {
+    .gif {
       display: block;
 
+      width: auto;
       max-width: 100%;
       max-height: 70vh;
 
-      margin: 0 auto;
+      object-fit: contain;
 
       border-radius: 16px;
 
       opacity: 0;
-
       transform: scale(0.97);
 
       transition:
-        opacity 0.4s ease,
-        transform 0.5s ease;
+        opacity 0.45s ease,
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    img.loaded {
+    .gif.loaded {
       opacity: 1;
       transform: scale(1);
     }
 
     .loading {
-      margin: 30px 0;
+      position: absolute;
+
+      width: 24px;
+      height: 24px;
+
+      border: 2px solid #d0d0d0;
+      border-top-color: #111;
+      border-radius: 50%;
+
+      animation: spin 0.75s linear infinite;
     }
 
-    .error {
-      padding: 24px;
-
-      border: 1px solid #ddd;
-      border-radius: 12px;
-
-      background: white;
-
-      text-align: left;
-      white-space: pre-wrap;
-      word-break: break-word;
+    .loading.hidden {
+      display: none;
     }
 
-    .back {
-      margin-top: 24px;
+    .back-button {
+      margin-top: 28px;
 
       padding: 10px 18px;
 
-      border: 1px solid #ccc;
+      border: 1px solid #d5d5d5;
       border-radius: 999px;
 
-      background: white;
+      background: #fff;
+      color: #111;
+
+      font-size: 14px;
+      font-weight: 500;
 
       cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .back-button:hover {
+      background: #ededed;
+      transform: translateY(-1px);
+    }
+
+    .error {
+      width: 100%;
+      max-width: 520px;
+
+      text-align: center;
+    }
+
+    .error-code {
+      margin: 0 0 10px;
+
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .error-title {
+      margin: 0 0 8px;
+
+      font-size: 24px;
+      font-weight: 650;
+    }
+
+    .error-message {
+      margin: 0;
+
+      color: #666;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.985);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 18px;
+      }
+
+      .title {
+        margin-bottom: 18px;
+      }
+
+      .viewer {
+        min-height: 180px;
+      }
+
+      .gif {
+        max-height: 65vh;
+        border-radius: 12px;
+      }
+
+      .back-button {
+        margin-top: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+
+      .gif {
+        transition: none;
+        transform: none;
+      }
+
+      .gif.loaded {
+        transform: none;
+      }
+
+      .loading {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -102,226 +241,139 @@
 
   <main class="page">
 
-    <div id="loading" class="loading">
-      Loading...
-    </div>
+    <section id="exercise" class="hidden">
+      <h1 id="title" class="title"></h1>
 
-    <div id="content" hidden>
+      <div class="viewer">
+        <div id="loading" class="loading"></div>
 
-      <h1 id="title"></h1>
-
-      <img id="gif" alt="">
+        <img
+          id="gif"
+          class="gif"
+          alt=""
+        >
+      </div>
 
       <button
-        class="back"
+        class="back-button"
+        type="button"
         onclick="history.back()"
       >
         ← Back
       </button>
+    </section>
 
-    </div>
+    <section id="error" class="error hidden">
+      <p class="error-code">404</p>
+      <h1 class="error-title">Exercise not found</h1>
+      <p class="error-message">
+        The requested exercise does not exist or its GIF could not be found.
+      </p>
 
-    <div id="error" class="error" hidden></div>
+      <button
+        class="back-button"
+        type="button"
+        onclick="history.back()"
+      >
+        ← Back
+      </button>
+    </section>
 
   </main>
 
-
   <script>
+    const REPO_BASE = "/WorkoutExercises-";
 
-    const BASE =
-      "/WorkoutExercises-";
-
-    const loading =
-      document.getElementById("loading");
-
-    const content =
-      document.getElementById("content");
-
-    const errorBox =
-      document.getElementById("error");
-
-    const title =
-      document.getElementById("title");
-
-    const gif =
-      document.getElementById("gif");
-
-
-    function showError(message) {
-
-      loading.hidden = true;
-
-      content.hidden = true;
-
-      errorBox.hidden = false;
-
-      errorBox.textContent =
-        message;
-    }
-
+    const exerciseSection = document.getElementById("exercise");
+    const errorSection = document.getElementById("error");
+    const titleElement = document.getElementById("title");
+    const gifElement = document.getElementById("gif");
+    const loadingElement = document.getElementById("loading");
 
     function getSlug() {
+      const path = window.location.pathname;
 
-      const path =
-        window.location.pathname;
+      const marker = "/g/";
 
-      const match =
-        path.match(/\/g\/([^/]+)/);
+      const index = path.indexOf(marker);
 
-      if (!match) {
+      if (index === -1) {
         return null;
       }
 
-      return decodeURIComponent(
-        match[1]
-      ).toLowerCase();
+      return path
+        .substring(index + marker.length)
+        .split("/")[0]
+        .trim()
+        .toLowerCase();
     }
 
+    function showError() {
+      exerciseSection.classList.add("hidden");
+      errorSection.classList.remove("hidden");
+      document.title = "Exercise Not Found";
+    }
 
     async function loadExercise() {
-
-      const slug =
-        getSlug();
+      const slug = getSlug();
 
       if (!slug) {
-
-        showError(
-          "ERROR 1\n\n" +
-          "Could not extract exercise slug.\n\n" +
-          "Current URL:\n" +
-          window.location.href
-        );
-
+        showError();
         return;
       }
-
-
-      const jsonURL =
-        `${BASE}/movements.json`;
-
-
-      let movements;
-
 
       try {
-
-        const response =
-          await fetch(
-            jsonURL,
-            {
-              cache: "no-store"
-            }
-          );
-
+        const response = await fetch(
+          `${REPO_BASE}/movements.json`,
+          {
+            cache: "no-cache"
+          }
+        );
 
         if (!response.ok) {
-
-          throw new Error(
-            `HTTP ${response.status}`
-          );
+          throw new Error("Could not load movements.json");
         }
 
+        const movements = await response.json();
+        const movement = movements[slug];
 
-        movements =
-          await response.json();
+        if (!movement) {
+          showError();
+          return;
+        }
+
+        titleElement.textContent = movement.title;
+        document.title = movement.title;
+
+        const gifURL =
+          `${REPO_BASE}/gifs/${encodeURIComponent(movement.file)}`;
+
+        gifElement.alt = movement.title;
+
+        gifElement.onload = () => {
+          loadingElement.classList.add("hidden");
+          gifElement.classList.add("loaded");
+        };
+
+        gifElement.onerror = () => {
+          showError();
+        };
+
+        /*
+          Setting the image source here effectively starts the
+          browser's loading process before revealing the GIF.
+        */
+        gifElement.src = gifURL;
+
+        exerciseSection.classList.remove("hidden");
 
       } catch (error) {
-
-        showError(
-          "ERROR 2\n\n" +
-          "Could not load movements.json.\n\n" +
-          `URL:\n${jsonURL}\n\n` +
-          `Error:\n${error.message}`
-        );
-
-        return;
+        console.error(error);
+        showError();
       }
-
-
-      const movement =
-        movements[slug];
-
-
-      if (!movement) {
-
-        showError(
-          "ERROR 3\n\n" +
-          "Exercise does not exist in movements.json.\n\n" +
-          `Slug:\n${slug}\n\n` +
-          "Available keys:\n" +
-          Object.keys(movements).join("\n")
-        );
-
-        return;
-      }
-
-
-      if (!movement.file) {
-
-        showError(
-          "ERROR 4\n\n" +
-          "Exercise exists, but has no GIF filename.\n\n" +
-          JSON.stringify(
-            movement,
-            null,
-            2
-          )
-        );
-
-        return;
-      }
-
-
-      const gifURL =
-        `${BASE}/gifs/${encodeURIComponent(
-          movement.file
-        )}`;
-
-
-      title.textContent =
-        movement.title || slug;
-
-
-      document.title =
-        movement.title || slug;
-
-
-      gif.alt =
-        movement.title || slug;
-
-
-      gif.onload = () => {
-
-        loading.hidden = true;
-
-        content.hidden = false;
-
-        gif.classList.add(
-          "loaded"
-        );
-      };
-
-
-      gif.onerror = () => {
-
-        showError(
-          "ERROR 5\n\n" +
-          "The exercise exists, but the GIF could not be loaded.\n\n" +
-          `Exercise:\n${movement.title}\n\n` +
-          `GIF filename:\n${movement.file}\n\n` +
-          `GIF URL:\n${gifURL}`
-        );
-      };
-
-
-      gif.src =
-        gifURL;
-
     }
 
-
     loadExercise();
-
   </script>
 
 </body>
