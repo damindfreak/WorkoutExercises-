@@ -281,117 +281,91 @@
 
   </main>
 
-<script>
-  const REPO_BASE = "/WorkoutExercises-";
+  <script>
+    const REPO_BASE = "/WorkoutExercises-";
 
-  const exerciseSection = document.getElementById("exercise");
-  const errorSection = document.getElementById("error");
-  const titleElement = document.getElementById("title");
-  const gifElement = document.getElementById("gif");
-  const loadingElement = document.getElementById("loading");
+    const exerciseSection = document.getElementById("exercise");
+    const errorSection = document.getElementById("error");
+    const titleElement = document.getElementById("title");
+    const gifElement = document.getElementById("gif");
+    const loadingElement = document.getElementById("loading");
 
-  function getSlug() {
-    const path = window.location.pathname;
+    function getSlug() {
+      const path = window.location.pathname;
+      const match = path.match(/\/g\/([^/]+)/);
 
-    // Expected:
-    // /WorkoutExercises-/g/squat
-
-    const match = path.match(/\/g\/([^/]+)/);
-
-    if (!match) {
-      return null;
-    }
-
-    return decodeURIComponent(match[1])
-      .trim()
-      .toLowerCase();
-  }
-
-  function showError(message) {
-    exerciseSection.classList.add("hidden");
-    errorSection.classList.remove("hidden");
-
-    document.querySelector(".error-message").textContent = message;
-
-    document.title = "Exercise Not Found";
-  }
-
-  async function loadExercise() {
-    const slug = getSlug();
-
-    if (!slug) {
-      showError(
-        "ERROR 1: Could not extract exercise slug."
-      );
-      return;
-    }
-
-    try {
-      const response = await fetch(
-        `${REPO_BASE}/movements.json?${Date.now()}`
-      );
-
-      if (!response.ok) {
-        throw new Error(
-          `ERROR 2: movements.json returned HTTP ${response.status}`
-        );
+      if (!match) {
+        return null;
       }
 
-      const movements = await response.json();
+      return decodeURIComponent(match[1])
+        .trim()
+        .toLowerCase();
+    }
 
-      const movement = movements[slug];
+    function showError() {
+      exerciseSection.classList.add("hidden");
+      errorSection.classList.remove("hidden");
+      document.title = "Exercise Not Found";
+    }
 
-      if (!movement) {
-        showError(
-          `ERROR 3: Exercise "${slug}" was not found in movements.json`
-        );
+    async function loadExercise() {
+      const slug = getSlug();
+
+      if (!slug) {
+        showError();
         return;
       }
 
-      if (!movement.file) {
-        showError(
-          `ERROR 4: Exercise "${slug}" has no GIF file defined`
+      try {
+        const response = await fetch(
+          `${REPO_BASE}/movements.json`,
+          {
+            cache: "no-cache"
+          }
         );
-        return;
+
+        if (!response.ok) {
+          throw new Error("Could not load movements.json");
+        }
+
+        const movements = await response.json();
+        const movement = movements[slug];
+
+        if (!movement || !movement.file) {
+          showError();
+          return;
+        }
+
+        titleElement.textContent = movement.title;
+        document.title = movement.title;
+
+        const gifURL =
+          `${REPO_BASE}/gifs/${encodeURIComponent(movement.file)}`;
+
+        gifElement.alt = movement.title;
+
+        gifElement.onload = () => {
+          loadingElement.classList.add("hidden");
+          gifElement.classList.add("loaded");
+        };
+
+        gifElement.onerror = () => {
+          showError();
+        };
+
+        gifElement.src = gifURL;
+
+        exerciseSection.classList.remove("hidden");
+
+      } catch (error) {
+        console.error(error);
+        showError();
       }
-
-      titleElement.textContent = movement.title;
-      document.title = movement.title;
-
-      const gifURL =
-        `${REPO_BASE}/gifs/${encodeURIComponent(movement.file)}`;
-
-      console.log("Slug:", slug);
-      console.log("GIF URL:", gifURL);
-
-      gifElement.alt = movement.title;
-
-      gifElement.onload = () => {
-        loadingElement.classList.add("hidden");
-        gifElement.classList.add("loaded");
-      };
-
-      gifElement.onerror = () => {
-        showError(
-          `ERROR 5: GIF could not be loaded.<br><br>${gifURL}`
-        );
-      };
-
-      gifElement.src = gifURL;
-
-      exerciseSection.classList.remove("hidden");
-
-    } catch (error) {
-      console.error(error);
-
-      showError(
-        `ERROR: ${error.message}`
-      );
     }
-  }
 
-  loadExercise();
-</script>
+    loadExercise();
+  </script>
 
 </body>
 </html>
