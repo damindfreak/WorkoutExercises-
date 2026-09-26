@@ -182,5 +182,44 @@
   "wrist-curls": {
     "title": "Wrist Curls",
     "file": "wrist-curls.gif"
+    "barbell-spider-curl": {
+    "title": "Barbell Spider Curl",
+    "file": "barbell-spider-curl.gif"
+  },
+  "cable-shoulder-rotation": {
+    "title": "Cable Shoulder Rotation",
+    "file": "cable-shoulder-rotation.gif"
+  },
+  "chest-supported-db-row": {
+    "title": "Chest-Supported Dumbbell Row",
+    "file": "chest-supported-db-row.gif"
+  },
+  "db-hammer-curl": {
+    "title": "Dumbbell Hammer Curl",
+    "file": "db-hammer-curl.gif"
+  },
+  "hip-airplane": {
+    "title": "Hip Airplane",
+    "file": "hip-airplane.gif"
+  },
+  "incline-db-extension": {
+    "title": "Incline Dumbbell Extension",
+    "file": "incline-db-extension.gif"
+  },
+  "seated-front-raise": {
+    "title": "Seated Front Raise",
+    "file": "seated-front-raise.gif"
+  },
+  "seated-knee-raise": {
+    "title": "Seated Knee Raise",
+    "file": "seated-knee-raise.gif"
+  },
+  "seated-lateral-raise": {
+    "title": "Seated Lateral Raise",
+    "file": "seated-lateral-raise.gif"
+  },
+  "spider-hammer-curl": {
+    "title": "Spider Hammer Curl",
+    "file": "spider-hammer-curl.gif"
   }
 }
