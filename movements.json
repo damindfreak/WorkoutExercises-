@@ -180,13 +180,13 @@
     "file": "wide-grip-lat-pulldown.gif"
   },
   "wrist-curls": {
-    "title": "Wrist Curls",
-    "file": "wrist-curls.gif"
-  },
-  "barbell-spider-curl": {
-    "title": "Barbell Spider Curl",
-    "file": "barbell-spider-curl.gif"
-  },
+  "title": "Wrist Curls",
+  "file": "wrist-curls.gif"
+},
+"barbell-spider-curl": {
+  "title": "Barbell Spider Curl",
+  "file": "barbell-spider-curl.gif"
+},
   "cable-shoulder-rotation": {
     "title": "Cable Shoulder Rotation",
     "file": "cable-shoulder-rotation.gif"
