@@ -11,6 +11,10 @@
     "title": "Band Hold Knee Raises",
     "file": "band-hold-knee-raises.gif"
   },
+  "side-bends-band": {
+    "title": "Band Side Bends",
+    "file": "side-bends-band.gif"
+  },
   "banded-bear-slider": {
     "title": "Banded Bear Slider",
     "file": "banded-bear-slider.gif"
@@ -26,6 +30,14 @@
   "barbell-hip-thrust": {
     "title": "Barbell Hip Thrust",
     "file": "barbell-hip-thrust.gif"
+  },
+  "barbell-spider-curl": {
+    "title": "Barbell Spider Curl",
+    "file": "barbell-spider-curl.gif"
+  },
+  "bench-dips": {
+    "title": "Bench Dips",
+    "file": "bench-dips.gif"
   },
   "bench-leg-raise": {
     "title": "Bench Leg Raise",
@@ -43,9 +55,25 @@
     "title": "Bulgarian Split Squat",
     "file": "bulgarian-split-squat.gif"
   },
+  "burpee": {
+    "title": "Burpee",
+    "file": "burpee.gif"
+  },
+  "cable-bicep-curls": {
+    "title": "Cable Bicep Curls",
+    "file": "cable-bicep-curls.gif"
+  },
   "cable-kickback": {
     "title": "Cable Kickback",
     "file": "cable-kickback.gif"
+  },
+  "cable-shoulder-rotation": {
+    "title": "Cable Shoulder Rotation",
+    "file": "cable-shoulder-rotation.gif"
+  },
+  "chest-supported-db-row": {
+    "title": "Chest-Supported Dumbbell Row",
+    "file": "chest-supported-db-row.gif"
   },
   "close-grip-lat-pulldown": {
     "title": "Close-Grip Lat Pulldown",
@@ -55,9 +83,21 @@
     "title": "Close-Grip Row",
     "file": "close-grip-row.gif"
   },
+  "db-rear-delt-raise": {
+    "title": "DB Rear Delt Raise",
+    "file": "db-rear-delt-raise.gif"
+  },
+  "decline-crunch": {
+    "title": "Decline Crunch",
+    "file": "decline-crunch.gif"
+  },
   "db-bicep-curls": {
     "title": "Dumbbell Bicep Curls",
     "file": "db-bicep-curls.gif"
+  },
+  "db-hammer-curl": {
+    "title": "Dumbbell Hammer Curl",
+    "file": "db-hammer-curl.gif"
   },
   "db-leg-curls": {
     "title": "Dumbbell Leg Curls",
@@ -67,10 +107,6 @@
     "title": "Dumbbell Shrugs",
     "file": "db-shrugs.gif"
   },
-  "decline-crunch": {
-    "title": "Decline Crunch",
-    "file": "decline-crunch.gif"
-  },
   "face-pull": {
     "title": "Face Pull",
     "file": "face-pull.gif"
@@ -79,6 +115,10 @@
     "title": "Hack Squats",
     "file": "hack-squats.gif"
   },
+  "hand-to-opposite-toes-crunch": {
+    "title": "Hand to Opposite Toes Crunch",
+    "file": "hand-to-opposite-toes-crunch.gif"
+  },
   "hanging-knee-raise": {
     "title": "Hanging Knee Raise",
     "file": "hanging-knee-raise.gif"
@@ -86,6 +126,14 @@
   "hip-abduction": {
     "title": "Hip Abduction",
     "file": "hip-abduction.gif"
+  },
+  "hip-airplane": {
+    "title": "Hip Airplane",
+    "file": "hip-airplane.gif"
+  },
+  "incline-db-extension": {
+    "title": "Incline Dumbbell Extension",
+    "file": "incline-db-extension.gif"
   },
   "lateral-raise": {
     "title": "Lateral Raise",
@@ -127,13 +175,25 @@
     "title": "Seated Calf Raise",
     "file": "seated-calf-raise.gif"
   },
-  "side-bends-band": {
-    "title": "Band Side Bends",
-    "file": "side-bends-band.gif"
+  "seated-front-raise": {
+    "title": "Seated Front Raise",
+    "file": "seated-front-raise.gif"
+  },
+  "seated-knee-raise": {
+    "title": "Seated Knee Raise",
+    "file": "seated-knee-raise.gif"
+  },
+  "seated-lateral-raise": {
+    "title": "Seated Lateral Raise",
+    "file": "seated-lateral-raise.gif"
   },
   "side-lunges": {
     "title": "Side Lunges",
     "file": "side-lunges.gif"
+  },
+  "single-arm-cable-pullover": {
+    "title": "Single-Arm Cable Pullover",
+    "file": "single-arm-cable-pullover.gif"
   },
   "smith-calf-raises": {
     "title": "Smith Machine Calf Raises",
@@ -142,6 +202,10 @@
   "smith-machine-shoulder-press": {
     "title": "Smith Machine Shoulder Press",
     "file": "smith-machine-shoulder-press.gif"
+  },
+  "spider-hammer-curl": {
+    "title": "Spider Hammer Curl",
+    "file": "spider-hammer-curl.gif"
   },
   "squat": {
     "title": "Squat",
@@ -163,6 +227,10 @@
     "title": "Superman Pulses",
     "file": "superman-pulses.gif"
   },
+  "t-bar-barbell-row": {
+    "title": "T-Bar Barbell Row",
+    "file": "t-bar-barbell-row.gif"
+  },
   "trx-jump-squat": {
     "title": "TRX Jump Squat",
     "file": "trx-jump-squat.gif"
@@ -175,52 +243,16 @@
     "title": "TRX Y Raises",
     "file": "trx-y-raises.gif"
   },
+  "wide-grip-cable-row": {
+    "title": "Wide-Grip Cable Row",
+    "file": "wide-grip-cable-row.gif"
+  },
   "wide-grip-lat-pulldown": {
     "title": "Wide-Grip Lat Pulldown",
     "file": "wide-grip-lat-pulldown.gif"
   },
   "wrist-curls": {
-  "title": "Wrist Curls",
-  "file": "wrist-curls.gif"
-},
-"barbell-curl": {
-  "title": "Barbell Curl",
-  "file": "barbell-curl.gif"
-},
-  "cable-shoulder-rotation": {
-    "title": "Cable Shoulder Rotation",
-    "file": "cable-shoulder-rotation.gif"
-  },
-  "chest-supported-db-row": {
-    "title": "Chest-Supported Dumbbell Row",
-    "file": "chest-supported-db-row.gif"
-  },
-  "db-hammer-curl": {
-    "title": "Dumbbell Hammer Curl",
-    "file": "db-hammer-curl.gif"
-  },
-  "hip-airplane": {
-    "title": "Hip Airplane",
-    "file": "hip-airplane.gif"
-  },
-  "incline-db-extension": {
-    "title": "Incline Dumbbell Extension",
-    "file": "incline-db-extension.gif"
-  },
-  "seated-front-raise": {
-    "title": "Seated Front Raise",
-    "file": "seated-front-raise.gif"
-  },
-  "seated-knee-raise": {
-    "title": "Seated Knee Raise",
-    "file": "seated-knee-raise.gif"
-  },
-  "seated-lateral-raise": {
-    "title": "Seated Lateral Raise",
-    "file": "seated-lateral-raise.gif"
-  },
-  "spider-hammer-curl": {
-    "title": "Spider Hammer Curl",
-    "file": "spider-hammer-curl.gif"
+    "title": "Wrist Curls",
+    "file": "wrist-curls.gif"
   }
 }
